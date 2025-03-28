@@ -9,6 +9,6 @@ cd dist
 git init 
 git add -A 
 git commit -m 'New Deployment'
-git push -f git@github.com/salemango/pokemon-generator.git master:gh-pages
+git push -f git@github.com:salemango/Module11.git master:gh-pages
 
 cd - 

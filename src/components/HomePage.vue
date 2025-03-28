@@ -1,5 +1,5 @@
 <template>
-  <header>Random Pokemon Generator</header>
+ 
 
   <h1> #{{ id }} <span>{{ name }}</span></h1>
   
@@ -11,7 +11,7 @@
     </ul>
 
     <div id="more-info">
-      <p>Abilities:</p>
+      <h3>Abilities:</h3>
       <ul>
         <li v-for="ability in info.abilities" :key="ability.id"> {{  ability.ability.name }}</li>
       </ul>
@@ -20,9 +20,6 @@
 
   <button @click="reloadPage">Generate New</button>
 
-  <footer>
-    <p>Made with pokeapi.co by Salem Mangum.</p>
-  </footer>
 </template>
 
 <script>
@@ -30,7 +27,7 @@ import axios from 'axios';
 
 
 export default {
-  name: 'HelloWorld',
+  name: 'HomePage',
   props: {
     msg: String
   },
@@ -55,7 +52,7 @@ export default {
     reloadPage() {
       location.reload();
       console.log(this.info);
-    },
+    }
   },  
   
   computed: {
@@ -77,18 +74,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  header {
-    background: #000;
-    color: white;
-    position: fixed;
-    text-align: center;
-    font-size: 16pt;
-    font-weight: normal;
-    padding: 2%;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
 
   img {
     max-width: 100%;
@@ -97,7 +82,7 @@ export default {
   }
   
   h1 {
-    margin-top: 20%;
+    margin-top: 30%;
     font-size: 25pt;
   }
 
@@ -155,8 +140,11 @@ export default {
     text-transform: lowercase;
   }
 
-  p {
+  h3 {
     font-weight: bold;
+    font-size: 20pt;
+    margin: 0;
+
   }
 
   button {
@@ -182,7 +170,7 @@ export default {
 
   @media screen and (min-width: 600px) {
     h1 {
-      margin-top: 10%;
+      margin-top: 20%;
     }
 
     #pokemon-image {
@@ -201,17 +189,17 @@ export default {
     button {
       padding: 3%;
     }
+
+    footer {
+      padding: 2%;
+    }
   }
 
   @media screen and (min-width: 990px) {
 
-    header {
-      padding: 1%;
-    }
-
     h1 {
       font-size: 40pt;
-      margin-top: 5%;
+      margin-top: 15%;
       width: 100%;
     }
 
@@ -219,9 +207,13 @@ export default {
       font-size: 33pt;
     }
 
+    h3 {
+      font-size: 25pt;
+    }
+
     #pokemon-image {
-      height: 475px;
-      width: 475px;
+      height: 400px;
+      width: 400px;
     }
 
     ul#types {
@@ -234,12 +226,23 @@ export default {
 
     button {
       margin-top: 2%;
-      padding: 1%;
+      padding: 2%;
     }
 
     footer {
       margin-top: 2;
       padding: 2%;
     }
+  }
+
+  @media screen and (min-width: 1900px) {
+    h1 {
+      margin-top: 8%;
+    }
+
+    button {
+      padding: 1%;
+    }
+
   }
 </style>
