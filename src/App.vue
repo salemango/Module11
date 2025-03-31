@@ -1,35 +1,28 @@
 <template id="app">
   
-  <div id="top">
-    <header>Random Pokémon Generator  </header>
-    <nav id="nav">
-      <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
-        <li><router-link to="/contact-me">Contact Me</router-link></li>
-        <li><a href="https://pokeapi.co/" target="_blank">PokeAPI</a></li>
-      </ul>
-    </nav>
-  </div>
+  <TheNavigation></TheNavigation>
+  
+  <GoBack></GoBack>
+  
   <router-view></router-view>
-
-  <footer>
-    <p>Made with pokeapi.co by Salem Mangum.</p>
-  </footer>
+  
+  <TheFooter></TheFooter>
 
 </template>
 
 <script>
-// import HomePage from './components/HomePage.vue';
-// import AboutPage from './components/AboutPage.vue';
+import TheNavigation from './components/TheNavigation.vue';
+import GoBack from './components/GoBack.vue';
+import TheFooter from './components/TheFooter.vue'
 
 export default {
   name: 'App',
   components: {
-   // HomePage
+   TheNavigation,
+   GoBack,
+   TheFooter
   }
 };
-
 
 </script>
 
@@ -62,6 +55,21 @@ export default {
     width: 100%;
   }
 
+  .go-back {
+    z-index: 3;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border: none;
+    cursor: pointer;
+  }
+
+  .go-back img {
+    height: 40px;
+    width: 40px;
+  }
+
   nav {
     margin: 0;
     padding: 0;
@@ -79,13 +87,13 @@ export default {
 
   nav ul li {
     background-color: #979797;
-    padding: 2% 5%;
+    padding: 2%;
     margin: 0;
     font-size: 13pt;
   }
 
-  nav ul li:hover {
-    background-color: #747474;
+  .active-link {
+    font-weight: bolder;
   }
 
   nav ul li a {
@@ -106,6 +114,13 @@ export default {
   @media screen and (min-width: 600px) {
     header {
       font-size: 25pt;
+    }
+
+    .go-back {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: auto;
     }
 
     nav ul {

@@ -3,9 +3,9 @@
 
   <h1> #{{ id }} <span>{{ name }}</span></h1>
   
-  <div id="pokemon-image">
-    <img v-bind:src="`https://img.pokemondb.net/artwork/large/${name}.jpg`">
-  </div>
+
+  <img class='pokemon-image' v-bind:src="`https://img.pokemondb.net/artwork/large/${name}.jpg`">
+
     <ul id="types">
       <li v-for="type in info.types" :key="type.id">{{ type.type.name }}</li>
     </ul>
@@ -79,7 +79,7 @@ export default {
     max-width: 100%;
     max-height: 100%;
     margin: 0 auto;
-  }
+  } 
   
   h1 {
     margin-top: 30%;
@@ -95,9 +95,9 @@ export default {
     margin-bottom: 0;
   }
 
-  #pokemon-image {
-    height: 244px;
-    width: 244px;
+  .pokemon-image {
+    max-height: 244px;
+    max-width: 244px;
     margin: 0 auto;
   }
 
@@ -173,9 +173,9 @@ export default {
       margin-top: 20%;
     }
 
-    #pokemon-image {
-      height: 350px;
-      width: 350px;
+    .pokemon-image {
+      max-height: 350px;
+      max-width: 350px;
     }
 
     ul#types {
@@ -211,9 +211,9 @@ export default {
       font-size: 25pt;
     }
 
-    #pokemon-image {
-      height: 400px;
-      width: 400px;
+    .pokemon-image {
+      max-height: 400px;
+      max-width: 400px;
     }
 
     ul#types {

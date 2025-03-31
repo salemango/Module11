@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '../components/HomePage.vue'
+import HomePage from '../views/HomePage.vue'
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
@@ -12,17 +12,20 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../components/AboutPage.vue')
+      component: () => import(/* webpackChunkName: 'AboutPage' */ '../views/AboutPage.vue')
     },
     {
-        path: '/contact-me',
-        name: 'contact-me',
-        component: () => import('../components/ContactMe.vue')
+      path: '/contact-me',
+      name: 'contact-me',
+      component: () => import(/* webpackChunkName: 'ContactMePage' */ '../views/ContactMe.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import(/* webpackChunkName: 'PageNotFound' */ '../views/NotFound.vue')
     }
-  ]
+  ],
+  linkActiveClass: 'active-link'
 })
 
 export default router

@@ -1,5 +1,5 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
-  publicPath: '/pokemon-generator/',
+  publicPath: '/Module11/',
   transpileDependencies: true
 })
